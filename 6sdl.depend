@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1614535356 source:d:\code c++\ltnc\6sdl\main.cpp
+	"Common.h"
+
+1614535356 source:d:\code c++\ltnc\6sdl\common.cpp
+	"Common.h"
+
+1614535399 d:\code c++\ltnc\6sdl\common.h
+	<iostream>
+	<cstring>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_ttf.h>
+
