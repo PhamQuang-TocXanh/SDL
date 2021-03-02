@@ -4,12 +4,17 @@ using namespace std;
 
 int main(int argc, char* argv[]){
     SDL_Event e;
-    if(!initSDL()){
-        cout << "Failed to initialize!" << endl;
+    SDL_Texture* screen = NULL;
+    SDL_Texture* picture[total] = {NULL};
+    SDL_Renderer* render = initSDL();
+
+    if(render == nullptr){
+        cerr << "Failed to initialize!" << endl;
     }else{
-        if(!loadMedia()){
-            cout << "Failed to load image" << endl;
+        if(!loadMedia(picture)){
+            cerr << "Failed to load image" << endl;
         }else{
+            cerr << "loaded image" << endl;
             //screen = picture[Default];
             bool quit = false;
             while(!quit){
@@ -18,6 +23,7 @@ int main(int argc, char* argv[]){
                         quit = true;
                     }
                 }
+
                 switch(e.key.keysym.sym){
                 case SDLK_UP:
                     screen = picture[Up]; break;
@@ -38,6 +44,6 @@ int main(int argc, char* argv[]){
             }
         }
     }
-    close();
+    close(screen); // not good enough, should destroy all pictures instead of one
     return 0;
 }

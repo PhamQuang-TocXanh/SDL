@@ -10,17 +10,13 @@
 const std::string title = "QuangDepTrai";
 const int SCREEN_HEIGHT = 600;
 const int SCREEN_WIDTH = 800;
+
 enum pic{Default, Up, Down, Right, Left, Dragon, total};
 
-static SDL_Window* window = NULL;
-static SDL_Renderer* render = NULL;
-static SDL_Texture* screen = NULL;
-static SDL_Texture* picture[total] = {NULL};
-
-bool initSDL();
+SDL_Renderer* initSDL();
 void logError(std::ostream& out, const std::string& ms, bool fatal);
-void close();
-bool loadMedia();
+void close(SDL_Texture* screen);
+bool loadMedia(SDL_Texture* picture[]);
 SDL_Texture* loadIMG(const std::string& path);
 
 #endif // COMMON_H
